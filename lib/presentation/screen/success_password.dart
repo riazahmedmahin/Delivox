@@ -86,7 +86,7 @@ class ErrorInfo extends StatelessWidget {
             const SizedBox(height: 16 * 2.5),
             button ??
             CustomButton(onPressed: (){
-            //Get.to(SuccessfulScreen());
+            //Get.to(HomePage());
           }, text: "Log in", color: AppColors.primaryColor, txtcolor: Colors.white),
   
             const SizedBox(height: 16),
