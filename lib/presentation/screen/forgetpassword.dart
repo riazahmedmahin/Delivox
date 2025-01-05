@@ -32,12 +32,12 @@ class ForgetPassword extends StatelessWidget {
                 contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16.0 * 1.5, vertical: 16.0),
               ),
-              keyboardType: TextInputType.phone,
+              keyboardType: TextInputType.name,
               onSaved: (phone) {
                 // Save it
               },
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
 
             CustomButton(onPressed: (){
              Get.to(OtpScreen());

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
+import 'package:user_app/presentation/widgets/mainbottom.dart';
 
 class SuccessfulScreen extends StatelessWidget {
   const SuccessfulScreen({super.key});
@@ -86,7 +87,7 @@ class ErrorInfo extends StatelessWidget {
             const SizedBox(height: 16 * 2.5),
             button ??
             CustomButton(onPressed: (){
-            //Get.to(HomePage());
+            Get.to(BottomNavScreen());
           }, text: "Log in", color: AppColors.primaryColor, txtcolor: Colors.white),
   
             const SizedBox(height: 16),

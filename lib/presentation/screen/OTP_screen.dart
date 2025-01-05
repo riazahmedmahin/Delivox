@@ -52,7 +52,7 @@ class OtpScreen extends StatelessWidget {
                     onPressed: () {},
                     child: const Text(
                       "Resend OTP Code",
-                      style: TextStyle(color: Color(0xFF757575)),
+                      style: TextStyle(color: Color(0xFF757575),fontSize: 12),
                     ),
                   ),
                 ],
