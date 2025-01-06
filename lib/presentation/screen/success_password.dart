@@ -88,7 +88,7 @@ class ErrorInfo extends StatelessWidget {
             button ??
             CustomButton(onPressed: (){
             Get.to(BottomNavScreen());
-          }, text: "Log in", color: AppColors.primaryColor, txtcolor: Colors.white),
+          }, text: "Sucessful", color: AppColors.primaryColor, txtcolor: Colors.white),
   
             const SizedBox(height: 16),
           ],
