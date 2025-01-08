@@ -24,17 +24,17 @@ class New_Password extends StatelessWidget {
             SizedBox(height: 30,),
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock,color: Colors.blueGrey,),
+                prefixIcon: Icon(Icons.lock,color: Colors.grey,),
                 hintText: 'New Psssword',
-                hintStyle: TextStyle(color: Colors.blueGrey)
+                hintStyle: TextStyle(color: Colors.grey)
               ),
             ),
             SizedBox(height:10,),
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock,color: Colors.blueGrey,),
+                prefixIcon: Icon(Icons.lock,color: Colors.grey,),
                 hintText: ' Confrim New Password',
-                hintStyle: TextStyle(color: Colors.blueGrey)
+                hintStyle: TextStyle(color: Colors.grey)
               ),
             ),
             SizedBox(height: 20,),

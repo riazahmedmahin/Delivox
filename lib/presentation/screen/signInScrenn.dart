@@ -41,8 +41,8 @@ class SignInScreen extends StatelessWidget {
                         TextFormField(
                           decoration: const InputDecoration(
                             hintText: 'Phone',
-                            helperStyle: TextStyle(color: Colors.blueGrey),
-                            prefixIcon: Icon(Icons.call,color: Colors.blueGrey,),
+                            hintStyle: TextStyle(color: Colors.grey),
+                            prefixIcon: Icon(Icons.call,color: Colors.grey,),
                             contentPadding: const EdgeInsets.symmetric(
                                   horizontal: 16.0 * 1.5, vertical: 16.0),
                           ),
@@ -57,8 +57,8 @@ class SignInScreen extends StatelessWidget {
                             obscureText: true,
                             decoration: InputDecoration(
                               hintText: 'Password',
-                              helperStyle: TextStyle(color: Colors.blueGrey),
-                              prefixIcon: Icon(Icons.password_rounded,color: Colors.blueGrey,),
+                              hintStyle: TextStyle(color: Colors.grey),
+                              prefixIcon: Icon(Icons.password_rounded,color: Colors.grey,),
 
                               contentPadding: const EdgeInsets.symmetric(
                                   horizontal: 16.0 * 1.5, vertical: 16.0),

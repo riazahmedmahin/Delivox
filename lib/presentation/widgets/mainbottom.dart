@@ -23,6 +23,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final pages = [
     HomeScree(),
+    HomeScree(),
     
 
   ];

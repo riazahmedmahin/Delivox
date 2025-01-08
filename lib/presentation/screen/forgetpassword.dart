@@ -27,8 +27,8 @@ class ForgetPassword extends StatelessWidget {
             TextFormField(
               decoration: const InputDecoration(
                 hintText: 'Email address',
-                hintStyle: TextStyle(color: Colors.blueGrey),
-                prefixIcon: Icon(Icons.email,color: Colors.blueGrey,),
+                hintStyle: TextStyle(color: Colors.grey),
+                prefixIcon: Icon(Icons.email,color: Colors.grey,),
                 contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16.0 * 1.5, vertical: 16.0),
               ),

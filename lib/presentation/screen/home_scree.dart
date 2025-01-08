@@ -8,6 +8,10 @@ class HomeScree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(icon: Icon(Icons.safety_check_outlined),),
+      body: Column(
+        children: [],
+      ),
+    
     );
   }
 }
