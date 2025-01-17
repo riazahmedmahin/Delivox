@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:user_app/presentation/screen/HM.dart';
 import 'package:user_app/presentation/screen/home_scree.dart';
 
 
@@ -22,8 +23,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   }
 
   final pages = [
+    HomeScreen(),
     HomeScree(),
-    HomeScree(),
+    
     
 
   ];

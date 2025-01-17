@@ -198,7 +198,7 @@ class OtpForm extends StatelessWidget {
           const SizedBox(height: 24),
           CustomButton(onPressed: (){
             Get.to(New_Password());
-          }, text: "Confirm", color: AppColors.primaryColor, txtcolor: Colors.white),
+          }, text: "Confirm", color: Color(0xFF22A45D), txtcolor: Colors.white),
 
         ],
       ),

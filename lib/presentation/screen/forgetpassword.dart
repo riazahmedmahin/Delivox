@@ -41,7 +41,7 @@ class ForgetPassword extends StatelessWidget {
 
             CustomButton(onPressed: (){
              Get.to(OtpScreen());
-            }, text: "Next", color: AppColors.primaryColor, txtcolor: Colors.white),
+            }, text: "Next", color: Color(0xFF22A45D), txtcolor: Colors.white),
         
           ],
         ),

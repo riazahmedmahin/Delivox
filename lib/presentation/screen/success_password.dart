@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 // TODO: add flutter_svg package to pubspec.yaml
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:user_app/presentation/screen/home_scree.dart';
+import 'package:user_app/presentation/screen/signInScrenn.dart';
 import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
 import 'package:user_app/presentation/widgets/mainbottom.dart';
@@ -88,7 +90,7 @@ class ErrorInfo extends StatelessWidget {
             button ??
             CustomButton(onPressed: (){
             Get.to(BottomNavScreen());
-          }, text: "Sucessful", color: AppColors.primaryColor, txtcolor: Colors.white),
+          }, text: "Sucessful", color: Color(0xFF22A45D), txtcolor: Colors.white),
   
             const SizedBox(height: 16),
           ],

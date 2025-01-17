@@ -7,9 +7,11 @@ class HomeScree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(icon: Icon(Icons.safety_check_outlined),),
+      appBar: AppBar(centerTitle: true,title: Text("data"),),
       body: Column(
-        children: [],
+        children: [
+          Text("data")
+        ],
       ),
     
     );

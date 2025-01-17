@@ -71,7 +71,7 @@ class SignInScreen extends StatelessWidget {
                         ),
                         CustomButton(onPressed: (){
 
-                        }, text: "Sign In", color: AppColors.primaryColor, txtcolor: Colors.white),
+                        }, text: "Sign In", color: Color(0xFF22A45D), txtcolor: Colors.white),
                         const SizedBox(height: 16.0),
                         TextButton(
                           onPressed: () {
@@ -99,7 +99,7 @@ class SignInScreen extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   text: "Sign Up",
-                                  style: TextStyle(color: AppColors.primaryColor),
+                                  style: TextStyle(color: Color(0xFF22A45D)),
                                 ),
                               ],
                             ),
