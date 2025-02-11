@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:user_app/presentation/screen/HM.dart';
+import 'package:user_app/presentation/screen/Profile_Screen.dart';
 import 'package:user_app/presentation/screen/home_scree.dart';
 
 
@@ -24,6 +25,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final pages = [
     HomeScreen(),
+    ProfileScreen(),
     HomeScree(),
     
     
@@ -75,23 +77,23 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             ),
             label: "Fav",
           ),
-          // BottomNavigationBarItem(
-          //   icon: SvgPicture.string(
-          //     chatIcon,
-          //     colorFilter: const ColorFilter.mode(
-          //       inActiveIconColor,
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          //   activeIcon: SvgPicture.string(
-          //     chatIcon,
-          //     colorFilter: const ColorFilter.mode(
-          //       Color(0xFFFF7643),
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          //   label: "Chat",
-          // ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.string(
+              chatIcon,
+              colorFilter: const ColorFilter.mode(
+                inActiveIconColor,
+                BlendMode.srcIn,
+              ),
+            ),
+            activeIcon: SvgPicture.string(
+              chatIcon,
+              colorFilter: const ColorFilter.mode(
+                Color(0xFFFF7643),
+                BlendMode.srcIn,
+              ),
+            ),
+            label: "Chat",
+          ),
           // BottomNavigationBarItem(
           //   icon: SvgPicture.string(
           //     userIcon,

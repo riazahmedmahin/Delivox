@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // TODO: add flutter_svg to pubspec.yaml
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:user_app/presentation/screen/AllCategory_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,6 @@ class HomeScreen extends StatelessWidget {
               Categories(),
               SpecialOffers(),
               SizedBox(height: 20),
-              //PopularProducts(),
               SizedBox(height: 20),
             ],
           ),
@@ -199,7 +199,7 @@ class Categories extends StatelessWidget {
     List<Map<String, dynamic>> categories = [
       {"icon": flashIcon, "text": "Flash Deal"},
       {"icon": billIcon, "text": "Bill"},
-      {"icon": gameIcon, "text": "Game"},
+      {"icon": packageIcon, "text": "Package"},
       {"icon": giftIcon, "text": "Daily Gift"},
       {"icon": discoverIcon, "text": "More"},
     ];
@@ -213,7 +213,19 @@ class Categories extends StatelessWidget {
           (index) => CategoryCard(
             icon: categories[index]["icon"],
             text: categories[index]["text"],
-            press: () {},
+            press: () {
+                  if (categories[index]["text"] == "More") {
+                // Navigate to the AllCategoriesScreen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AllCategoriesScreen(),
+                  ),
+                );
+              } else {
+                // Handle other category clicks (if needed)
+              }
+            },
           ),
         ),
       ),
@@ -427,11 +439,10 @@ const flashIcon =
 </svg>
 ''';
 
-const gameIcon =
-    '''<svg width="25" height="18" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M20.8058 11.3855C20.8058 12.5827 19.8412 13.5542 18.6504 13.5542C17.4607 13.5542 16.4951 12.5827 16.4951 11.3855C16.4951 10.1884 17.4607 9.21687 18.6504 9.21687C19.8412 9.21687 20.8058 10.1884 20.8058 11.3855ZM8.59145 11.3855C8.59145 11.7455 8.30156 12.0361 7.94485 12.0361H6.8133V13.1747C6.8133 13.5336 6.52448 13.8253 6.1667 13.8253C5.80891 13.8253 5.5201 13.5336 5.5201 13.1747V12.0361H4.38854C4.03076 12.0361 3.74194 11.7455 3.74194 11.3855C3.74194 11.0255 4.03076 10.7349 4.38854 10.7349H5.5201V9.59639C5.5201 9.23639 5.80891 8.94578 6.1667 8.94578C6.52448 8.94578 6.8133 9.23639 6.8133 9.59639V10.7349H7.94485C8.30156 10.7349 8.59145 11.0255 8.59145 11.3855ZM23.6066 12.4493C23.2111 14.5084 21.5655 16.1718 19.5104 16.5882C17.6536 16.9655 15.786 16.3551 14.5197 14.9563C14.1447 14.542 13.6511 14.3133 13.1306 14.3133H11.8697C11.3503 14.3133 10.8578 14.541 10.4838 14.9552C9.48161 16.0634 8.05585 16.6988 6.57406 16.6988C5.09011 16.6988 3.66435 16.0634 2.66535 14.9563C1.65126 13.834 1.17385 12.3788 1.31826 10.8586C1.57475 8.17482 3.99627 6.07229 6.83162 6.07229H18.4284C20.0094 6.07229 21.4944 6.77711 22.5031 8.00675C23.5107 9.2353 23.9127 10.8542 23.6066 12.4493ZM23.4999 7.1794C22.2455 5.64831 20.3973 4.77108 18.4284 4.77108H13.1478V0.650602C13.1478 0.290602 12.8579 0 12.5012 0C12.1435 0 11.8546 0.290602 11.8546 0.650602V4.77108H6.83162C3.33781 4.77108 0.350514 7.38976 0.0315236 10.7339C-0.148447 12.6239 0.446426 14.4347 1.7073 15.8313C2.95201 17.2095 4.72585 18 6.57406 18C8.41903 18 10.1929 17.2095 11.4408 15.8313C11.513 15.75 11.6671 15.6145 11.8697 15.6145H13.1306C13.3354 15.6145 13.4884 15.75 13.5627 15.8324C14.8322 17.2345 16.5835 18 18.4241 18C18.8681 18 19.3175 17.9555 19.7669 17.8645C22.3296 17.344 24.3825 15.2675 24.8761 12.6954C25.2555 10.7187 24.7543 8.70723 23.4999 7.1794Z" fill="#FF7643"/>
-</svg>
-''';
+const packageIcon =
+    '''<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="https://cdn-icons-png.flaticon.com/128/679/679922.png">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V5H11V3C11 2.44772 11.4477 2 12 2ZM9 5V3C9 1.34315 10.3431 0 12 0C13.6569 0 15 1.34315 15 3V5H19C20.1046 5 21 5.89543 21 7V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V7C3 5.89543 3.89543 5 5 5H9ZM5 7V9H19V7H5ZM19 11H5V19H19V11Z" fill="#FF7643"/>
+</svg>''';
 
 const giftIcon =
     '''<svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
