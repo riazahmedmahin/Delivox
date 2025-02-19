@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 // TODO: add flutter_svg package to pubspec.yaml
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:user_app/presentation/screen/home_scree.dart';
 import 'package:user_app/presentation/screen/signInScrenn.dart';
 import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
@@ -25,10 +24,10 @@ class SuccessfulScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: SvgPicture.string(
-                    paymentSuccessIllistration,
-                    fit: BoxFit.scaleDown,
-                  ),
+                  child: Image.network("https://cdn-icons-png.flaticon.com/256/9821/9821311.png",
+                  height: 50,
+                  width: 50,
+                  )
                 ),
               ),
               const Spacer(flex: 2),

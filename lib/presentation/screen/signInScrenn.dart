@@ -21,9 +21,15 @@ class SignInScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: constraints.maxHeight * 0.1),
-                  Image.network(
-                    "https://i.postimg.cc/nz0YBQcH/Logo-light.png",
-                    height: 100,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.network(
+                        "https://cdn-icons-png.flaticon.com/128/3665/3665927.png",
+                        height: 50,
+                      ),
+                      Text("elivox",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w900),)
+                    ],
                   ),
                   SizedBox(height: constraints.maxHeight * 0.1),
                   Text(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:user_app/presentation/screen/HM.dart';
+import 'package:user_app/presentation/screen/home_screens.dart';
 import 'package:user_app/presentation/screen/Profile_Screen.dart';
-import 'package:user_app/presentation/screen/home_scree.dart';
 
 
 const Color inActiveIconColor = Color(0xFFB6B6B6);
@@ -26,10 +25,6 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final pages = [
     HomeScreen(),
     ProfileScreen(),
-    HomeScree(),
-    
-    
-
   ];
 
   @override
