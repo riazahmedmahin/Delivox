@@ -1,31 +1,85 @@
 import 'package:flutter/material.dart';
-// TODO: add flutter_svg to pubspec.yaml
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:user_app/presentation/screen/AllCategory_screen.dart';
+import 'package:get/get.dart';
+import 'package:user_app/presentation/Data/StateHolder/categoryController.dart';
+import 'package:user_app/presentation/Data/model/categoeyData.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    Get.find<CategoryListController>().getCategoryList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 16),
-          child: Column(
+    return Scaffold(
+         appBar: PreferredSize(
+        preferredSize: Size.fromHeight(160), // Total height of AppBar
+        child: AppBar(
+           automaticallyImplyLeading: false,
+          toolbarHeight: 130,
+          backgroundColor: Colors.green,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(18), // Rounded bottom
+            ),
+          ),
+          title: Column(
+            
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeHeader(),
-              DiscountBanner(),
-              Categories(),
-              SpecialOffers(),
-              SizedBox(height: 20),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
+              Text("Wellcome,",style: TextStyle(color: Colors.white,fontSize: 18),),
+              SizedBox(height: 5,),
+              Text("Hello, Riaz",style: TextStyle(color: Colors.white,fontSize: 26,fontWeight: FontWeight.w700),),
+              SizedBox(height: 12,),
+              HomeHeader() // Space between icons and search
+ 
             ],
           ),
         ),
       ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 18,),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //const HomeHeader(),
+            const DiscountBanner(),
+            SizedBox(height: 5,),
+            Padding(
+              padding: const EdgeInsets.only(left: 18.0),
+              child: Text("Category",style: TextStyle(fontSize: 15,color: Colors.black87,fontWeight: FontWeight.bold),),
+            ),
+            GetBuilder<CategoryListController>(
+              builder: (categoryListController) {
+                return Visibility(
+                  visible:
+                      !categoryListController.inProgress, // Only show when not loading
+                  replacement: const Center(
+                      child:
+                          CircularProgressIndicator()), // Show loader when fetching data
+                  child: Categories(),
+                );
+              },
+            ),
+            
+            const SpecialOffers(),
+            const SizedBox(height: 20),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
     );
   }
-  
 }
 
 class HomeHeader extends StatelessWidget {
@@ -36,7 +90,7 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -66,29 +120,29 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: TextFormField(
-        onChanged: (value) {},
-        decoration: InputDecoration(
-          filled: true,
-          hintStyle: const TextStyle(color: Color(0xFF757575)),
-          fillColor: const Color(0xFF979797).withOpacity(0.1),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide.none,
-          ),
-          focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide.none,
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide.none,
-          ),
-          hintText: "Search product",
-          prefixIcon: const Icon(Icons.search),
-        ),
-      ),
+  onChanged: (value) {},
+  decoration: InputDecoration(
+    filled: true,
+    fillColor: Colors.white, // Set background color to white
+    hintStyle: const TextStyle(color: Color(0xFF757575)),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    border: const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderSide: BorderSide.none,
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderSide: BorderSide.none,
+    ),
+    enabledBorder: const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderSide: BorderSide.none,
+    ),
+    hintText: "Search product",
+    prefixIcon: const Icon(Icons.search, color: Colors.grey),
+  ),
+),
+
     );
   }
 }
@@ -114,11 +168,12 @@ class IconBtnWithCounter extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
+          
             padding: const EdgeInsets.all(12),
             height: 46,
             width: 46,
             decoration: BoxDecoration(
-              color: const Color(0xFF979797).withOpacity(0.1),
+              color:  Colors.white,
               shape: BoxShape.circle,
             ),
             child: SvgPicture.string(svgSrc),
@@ -163,10 +218,10 @@ class DiscountBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(left: 9,right: 9),
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: 16,
+        vertical: 20,
       ),
       decoration: BoxDecoration(
         color: const Color(0xFF4A3298),
@@ -196,36 +251,18 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {"icon": flashIcon, "text": "Flash Deal"},
-      {"icon": billIcon, "text": "Bill"},
-      {"icon": packageIcon, "text": "Package"},
-      {"icon": giftIcon, "text": "Daily Gift"},
-      {"icon": discoverIcon, "text": "More"},
-    ];
+    final categoryListController = Get.find<CategoryListController>();
+
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(
-          categories.length,
+          5,
+          //categoryListController.categoryListModel.categoryDataList?.length?? 0,
           (index) => CategoryCard(
-            icon: categories[index]["icon"],
-            text: categories[index]["text"],
-            press: () {
-                  if (categories[index]["text"] == "More") {
-                // Navigate to the AllCategoriesScreen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AllCategoriesScreen(),
-                  ),
-                );
-              } else {
-                // Handle other category clicks (if needed)
-              }
-            },
+            catagory: categoryListController.categoryListModel.categoryDataList![index],
           ),
         ),
       ),
@@ -235,19 +272,19 @@ class Categories extends StatelessWidget {
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
-    Key? key,
-    required this.icon,
-    required this.text,
-    required this.press,
+    Key? key, required this.catagory,
+
+    //required this.press,
   }) : super(key: key);
 
-  final String icon, text;
-  final GestureTapCallback press;
+  //final String icon, text;
+  //final GestureTapCallback press;
+  final categoryData catagory;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      //onTap: press,
       child: Column(
         children: [
           Container(
@@ -258,10 +295,10 @@ class CategoryCard extends StatelessWidget {
               color: const Color(0xFFFFECDF),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: SvgPicture.string(icon),
+            child: Image.network(catagory.categoryImg??"")
           ),
           const SizedBox(height: 4),
-          Text(text, textAlign: TextAlign.center)
+          Text(catagory.categoryName?? " ", textAlign: TextAlign.center)
         ],
       ),
     );
@@ -278,7 +315,7 @@ class SpecialOffers extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 13),
           child: SectionTitle(
             title: "Special for you",
             press: () {},
@@ -325,7 +362,7 @@ class SpecialOfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.only(left: 10),
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
@@ -415,8 +452,6 @@ class SectionTitle extends StatelessWidget {
     );
   }
 }
-
-
 
 const heartIcon =
     '''<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">

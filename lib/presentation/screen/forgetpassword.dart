@@ -20,15 +20,33 @@ class ForgetPassword extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20,),
-            Text("Password recovery ",style: TextStyle(fontSize: 22)),
+            SizedBox(
+              height: 20,
+            ),
+            Text("Password recovery ", style: TextStyle(fontSize: 22)),
             Text("Enter your email address to recover your password"),
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
             TextFormField(
               decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                  ), // Border when focused
+                ),
                 hintText: 'Email address',
                 hintStyle: TextStyle(color: Colors.grey),
-                prefixIcon: Icon(Icons.email,color: Colors.grey,),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.grey,
+                ),
                 contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16.0 * 1.5, vertical: 16.0),
               ),
@@ -37,12 +55,16 @@ class ForgetPassword extends StatelessWidget {
                 // Save it
               },
             ),
-            SizedBox(height: 20,),
-
-            CustomButton(onPressed: (){
-             Get.to(OtpScreen());
-            }, text: "Next", color: Color(0xFF22A45D), txtcolor: Colors.white),
-        
+            SizedBox(
+              height: 20,
+            ),
+            CustomButton(
+                onPressed: () {
+                  Get.to(OtpScreen());
+                },
+                text: "Next",
+                color: Color(0xFF22A45D),
+                txtcolor: Colors.white),
           ],
         ),
       ),

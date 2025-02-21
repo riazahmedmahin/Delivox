@@ -25,8 +25,8 @@ class SuccessfulScreen extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1,
                   child: Image.network("https://cdn-icons-png.flaticon.com/256/9821/9821311.png",
-                  height: 50,
-                  width: 50,
+                  height: 20,
+                  width: 20,
                   )
                 ),
               ),

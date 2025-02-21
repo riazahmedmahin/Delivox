@@ -28,7 +28,11 @@ class SignInScreen extends StatelessWidget {
                         "https://cdn-icons-png.flaticon.com/128/3665/3665927.png",
                         height: 50,
                       ),
-                      Text("elivox",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w900),)
+                      Text(
+                        "elivox",
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.w900),
+                      )
                     ],
                   ),
                   SizedBox(height: constraints.maxHeight * 0.1),
@@ -46,57 +50,97 @@ class SignInScreen extends StatelessWidget {
                       children: [
                         TextFormField(
                           decoration: const InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black)),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8))),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                color: Colors.grey,
+                              ), // Border when focused
+                            ),
                             hintText: 'Phone',
                             hintStyle: TextStyle(color: Colors.grey),
-                            prefixIcon: Icon(Icons.call,color: Colors.grey,),
+                            prefixIcon: Icon(
+                              Icons.call,
+                              color: Colors.grey,
+                            ),
                             contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0 * 1.5, vertical: 16.0),
+                                horizontal: 16.0 * 1.5, vertical: 16.0),
                           ),
                           keyboardType: TextInputType.phone,
                           onSaved: (phone) {
                             // Save it
                           },
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: TextFormField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: 'Password',
-                              hintStyle: TextStyle(color: Colors.grey),
-                              prefixIcon: Icon(Icons.password_rounded,color: Colors.grey,),
-
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0 * 1.5, vertical: 16.0),
-                              
+                        SizedBox(
+                          height: 15,
+                        ),
+                        TextFormField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black)),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8))),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                color: Colors.grey,
+                              ), // Border when focused
                             ),
-                            onSaved: (passaword) {
-                              // Save it
-                            },
+                            hintText: 'Password',
+                            hintStyle: TextStyle(color: Colors.grey),
+                            prefixIcon: Icon(
+                              Icons.password_rounded,
+                              color: Colors.grey,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16.0 * 1.5, vertical: 16.0),
                           ),
-                        ),
-                        CustomButton(onPressed: (){
-
-                        }, text: "Sign In", color: Color(0xFF22A45D), txtcolor: Colors.white),
-                        const SizedBox(height: 16.0),
-                        TextButton(
-                          onPressed: () {
-                            Get.to(ForgetPassword());
+                          onSaved: (passaword) {
+                            // Save it
                           },
-                          child: Text(
-                            'Forgot Password?',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .color!
-                                      .withOpacity(0.64),
-                                ),
-                          ),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Get.to(ForgetPassword());
+                              },
+                              child: Text(
+                                'Forgot Password?',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge!
+                                          .color!
+                                          .withOpacity(0.64),
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        CustomButton(
+                            onPressed: () {},
+                            text: "Sign In",
+                            color: Color(0xFF22A45D),
+                            txtcolor: Colors.white),
+                        const SizedBox(height: 16.0),
                         TextButton(
                           onPressed: () {},
                           child: Text.rich(
@@ -124,12 +168,81 @@ class SignInScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  socialwithSignIn(),
                 ],
               ),
             );
           },
         ),
       ),
+    );
+  }
+}
+
+class socialwithSignIn extends StatelessWidget {
+  const socialwithSignIn({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 100, // Set your desired width
+          child: Divider(
+            color: Colors.grey.shade300,
+            thickness: 1, // Adjust thickness if needed
+          ),
+        ),
+        SizedBox(
+          width: 6,
+        ),
+        Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(8)),
+          child: ClipRRect(
+              child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.network(
+              "https://cdn-icons-png.flaticon.com/128/281/281764.png",
+              fit: BoxFit.cover,
+            ),
+          )),
+        ),
+        SizedBox(
+          width: 12,
+        ),
+        Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(8)),
+          child: ClipRRect(
+              child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.network(
+              "https://cdn-icons-png.flaticon.com/128/0/747.png",
+              fit: BoxFit.cover,
+            ),
+          )),
+        ),
+        SizedBox(
+          width: 6,
+        ),
+        SizedBox(
+          width: 100, // Set your desired width
+          child: Divider(
+            color: Colors.grey.shade300,
+            thickness: 1, // Adjust thickness if needed
+          ),
+        ),
+      ],
     );
   }
 }
