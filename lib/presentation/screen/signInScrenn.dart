@@ -138,7 +138,7 @@ class SignInScreen extends StatelessWidget {
                         CustomButton(
                             onPressed: () {},
                             text: "Sign In",
-                            color: Color(0xFF22A45D),
+                            color: const Color(0xFF4A3298),
                             txtcolor: Colors.white),
                         const SizedBox(height: 16.0),
                         TextButton(

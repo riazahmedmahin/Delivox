@@ -22,30 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
          appBar: PreferredSize(
-        preferredSize: Size.fromHeight(160), // Total height of AppBar
-        child: AppBar(
-           automaticallyImplyLeading: false,
-          toolbarHeight: 130,
-          backgroundColor: Colors.green,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(18), // Rounded bottom
-            ),
-          ),
-          title: Column(
-            
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 10),
-              Text("Wellcome,",style: TextStyle(color: Colors.white,fontSize: 18),),
-              SizedBox(height: 5,),
-              Text("Hello, Riaz",style: TextStyle(color: Colors.white,fontSize: 26,fontWeight: FontWeight.w700),),
-              SizedBox(height: 12,),
-              HomeHeader() // Space between icons and search
- 
-            ],
-          ),
-        ),
+        preferredSize: Size.fromHeight(175), // Total height of AppBar
+        child: appbar(),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 18,),
@@ -73,10 +51,126 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             
             const SpecialOffers(),
+            SizedBox(height: 10,),
+            service(),
             const SizedBox(height: 20),
-            const SizedBox(height: 20),
+            //const SizedBox(height: 20),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class service extends StatelessWidget {
+  const service({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Stack(
+            alignment: Alignment.topCenter,
+              children: [
+                Container(
+                  height: 150,
+                  width: 180,
+                decoration: BoxDecoration(
+                  color: Colors.amber,
+                 borderRadius: BorderRadius.circular(8)
+                ),
+                //margin: EdgeInsets.only(top: 10),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 95),
+                  child: Column(
+                    children: [
+                      Text("Check Rate",style: TextStyle(color: Colors.white),),
+                      Icon(Icons.arrow_circle_right_outlined,size: 25,)
+                    ],
+                  ),
+                )
+              ),
+              Positioned(
+                top: 8,
+                child: Image.network("https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
+                height: 80,
+                width: 80,
+                ),
+              )
+              
+              ]
+            ),
+                  Stack(
+            alignment: Alignment.topCenter,
+              children: [
+                Container(
+                  height: 150,
+                  width: 180,
+                decoration: BoxDecoration(
+                  color: Colors.amber,
+                 borderRadius: BorderRadius.circular(8)
+                ),
+                //margin: EdgeInsets.only(top: 10),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 95),
+                  child: Column(
+                    children: [
+                      Text("Check Rate",style: TextStyle(color: Colors.white),),
+                      Icon(Icons.arrow_circle_right_outlined,size: 25,)
+                    ],
+                  ),
+                )
+              ),
+              Positioned(
+                top: 8,
+                child: Image.network("https://cdn-icons-png.flaticon.com/128/2001/2001551.png",
+                height: 80,
+                width: 80,
+                ),
+              )
+              
+              ]
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class appbar extends StatelessWidget {
+  const appbar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+       automaticallyImplyLeading: false,
+      toolbarHeight: 145,
+      backgroundColor: const Color(0xFF4A3298),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(18), // Rounded bottom
+        ),
+      ),
+      title: Column(
+        
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 10),
+          Text("Wellcome,",style: TextStyle(color: Colors.white,fontSize: 18),),
+          SizedBox(height: 5,),
+          Text("Hello, Riaz",style: TextStyle(color: Colors.white,fontSize: 26,fontWeight: FontWeight.w700),),
+          SizedBox(height: 12,),
+          HomeHeader(), // Space between icons and search
+          
+     
+        ],
       ),
     );
   }
@@ -94,18 +188,35 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Expanded(child: SearchField()),
-          const SizedBox(width: 16),
-          IconBtnWithCounter(
-            // numOfitem: 3,
-            svgSrc: cartIcon,
-            press: () {},
+          const Expanded(child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Track your Product",style: TextStyle(color: Colors.white60,fontSize: 13),),
+              SizedBox(height: 5,),
+              SearchField(),
+            ],
+          )),
+          const SizedBox(width: 16,),
+          Column(
+            children: [
+              SizedBox(height: 15,),
+              IconBtnWithCounter(
+                // numOfitem: 3,
+                svgSrc: cartIcon,
+                press: () {},
+              ),
+            ],
           ),
           const SizedBox(width: 8),
-          IconBtnWithCounter(
-            svgSrc: bellIcon,
-            numOfitem: 3,
-            press: () {},
+          Column(
+            children: [
+              SizedBox(height: 15,),
+              IconBtnWithCounter(
+                svgSrc: bellIcon,
+                numOfitem: 3,
+                press: () {},
+              ),
+            ],
           ),
         ],
       ),
@@ -167,6 +278,7 @@ class IconBtnWithCounter extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
+  
           Container(
           
             padding: const EdgeInsets.all(12),
@@ -236,6 +348,7 @@ class DiscountBanner extends StatelessWidget {
               text: "Cashback 20%",
               style: TextStyle(
                 fontSize: 24,
+                //color: Colors.yellow,
                 fontWeight: FontWeight.bold,
               ),
             ),

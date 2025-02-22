@@ -72,23 +72,23 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             ),
             label: "Fav",
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.string(
-              chatIcon,
-              colorFilter: const ColorFilter.mode(
-                inActiveIconColor,
-                BlendMode.srcIn,
-              ),
-            ),
-            activeIcon: SvgPicture.string(
-              chatIcon,
-              colorFilter: const ColorFilter.mode(
-                Color(0xFFFF7643),
-                BlendMode.srcIn,
-              ),
-            ),
-            label: "Chat",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: SvgPicture.string(
+          //     chatIcon,
+          //     colorFilter: const ColorFilter.mode(
+          //       inActiveIconColor,
+          //       BlendMode.srcIn,
+          //     ),
+          //   ),
+          //   activeIcon: SvgPicture.string(
+          //     chatIcon,
+          //     colorFilter: const ColorFilter.mode(
+          //       Color(0xFFFF7643),
+          //       BlendMode.srcIn,
+          //     ),
+          //   ),
+          //   label: "Chat",
+          // ),
           // BottomNavigationBarItem(
           //   icon: SvgPicture.string(
           //     userIcon,
