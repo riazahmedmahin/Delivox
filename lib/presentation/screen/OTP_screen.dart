@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:user_app/presentation/screen/forgetpassword.dart';
-import 'package:user_app/presentation/screen/new_password.dart';
+import 'package:user_app/presentation/screen/Forgetpassword.dart';
+import 'package:user_app/presentation/screen/New_password.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
 
 import '../utility/app_color.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:user_app/presentation/screen/forgetpassword.dart';
-import 'package:user_app/presentation/screen/signInScrenn.dart';
+import 'package:user_app/presentation/screen/Forgetpassword.dart';
+import 'package:user_app/presentation/screen/SignIn_Screnn.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

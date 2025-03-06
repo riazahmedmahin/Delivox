@@ -48,7 +48,7 @@ class ForgetPassword extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16.0 * 1.5, vertical: 16.0),
+                    horizontal: 16.0 * 1.5, vertical: 14.0),
               ),
               keyboardType: TextInputType.name,
               onSaved: (phone) {

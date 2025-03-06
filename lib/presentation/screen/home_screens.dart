@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:user_app/presentation/Data/StateHolder/categoryController.dart';
 import 'package:user_app/presentation/Data/model/categoeyData.dart';
+import 'package:user_app/presentation/utility/app_color.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -49,10 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-            
+            ShipmentTrackingCard(),
             const SpecialOffers(),
             SizedBox(height: 10,),
-            service(),
+            
+            //service(),
             const SizedBox(height: 20),
             //const SizedBox(height: 20),
           ],
@@ -61,6 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
 
 class service extends StatelessWidget {
   const service({
@@ -74,71 +78,52 @@ class service extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Stack(
-            alignment: Alignment.topCenter,
-              children: [
-                Container(
-                  height: 150,
-                  width: 180,
-                decoration: BoxDecoration(
-                  color: Colors.amber,
-                 borderRadius: BorderRadius.circular(8)
-                ),
-                //margin: EdgeInsets.only(top: 10),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 95),
-                  child: Column(
-                    children: [
-                      Text("Check Rate",style: TextStyle(color: Colors.white),),
-                      Icon(Icons.arrow_circle_right_outlined,size: 25,)
-                    ],
-                  ),
-                )
-              ),
-              Positioned(
-                top: 8,
-                child: Image.network("https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
-                height: 80,
-                width: 80,
-                ),
-              )
-              
-              ]
-            ),
-                  Stack(
-            alignment: Alignment.topCenter,
-              children: [
-                Container(
-                  height: 150,
-                  width: 180,
-                decoration: BoxDecoration(
-                  color: Colors.amber,
-                 borderRadius: BorderRadius.circular(8)
-                ),
-                //margin: EdgeInsets.only(top: 10),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 95),
-                  child: Column(
-                    children: [
-                      Text("Check Rate",style: TextStyle(color: Colors.white),),
-                      Icon(Icons.arrow_circle_right_outlined,size: 25,)
-                    ],
-                  ),
-                )
-              ),
-              Positioned(
-                top: 8,
-                child: Image.network("https://cdn-icons-png.flaticon.com/128/2001/2001551.png",
-                height: 80,
-                width: 80,
-                ),
-              )
-              
-              ]
-            ),
+          serviceItem(),
+          serviceItem()
         ],
       ),
     );
+  }
+}
+
+class serviceItem extends StatelessWidget {
+  const serviceItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.topCenter,
+        children: [
+          Container(
+            height: 150,
+            width: 180,
+          decoration: BoxDecoration(
+            color: AppColors.colorSwatch[900],
+           borderRadius: BorderRadius.circular(8)
+          ),
+          //margin: EdgeInsets.only(top: 10),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 95),
+            child: Column(
+              children: [
+                Text("Check Rate",style: TextStyle(color: Colors.white),),
+                Icon(Icons.arrow_circle_right_outlined,size: 25,)
+              ],
+            ),
+          )
+        ),
+        Positioned(
+          top: 8,
+          child: Image.network("https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
+          height: 80,
+          width: 80,
+          ),
+        )
+        
+        ]
+      );
   }
 }
 
@@ -151,7 +136,7 @@ class appbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
        automaticallyImplyLeading: false,
-      toolbarHeight: 145,
+      toolbarHeight: 150,
       backgroundColor: const Color(0xFF4A3298),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
@@ -197,16 +182,16 @@ class HomeHeader extends StatelessWidget {
             ],
           )),
           const SizedBox(width: 16,),
-          Column(
-            children: [
-              SizedBox(height: 15,),
-              IconBtnWithCounter(
-                // numOfitem: 3,
-                svgSrc: cartIcon,
-                press: () {},
-              ),
-            ],
-          ),
+          // Column(
+          //   children: [
+          //     SizedBox(height: 15,),
+          //     IconBtnWithCounter(
+          //       // numOfitem: 3,
+          //       svgSrc: cartIcon,
+          //       press: () {},
+          //     ),
+          //   ],
+          // ),
           const SizedBox(width: 8),
           Column(
             children: [
@@ -249,7 +234,7 @@ class SearchField extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(12)),
       borderSide: BorderSide.none,
     ),
-    hintText: "Search product",
+    hintText: "Tracking ID",
     prefixIcon: const Icon(Icons.search, color: Colors.grey),
   ),
 ),
@@ -560,6 +545,133 @@ class SectionTitle extends StatelessWidget {
           onPressed: press,
           style: TextButton.styleFrom(foregroundColor: Colors.grey),
           child: const Text("See more"),
+        ),
+      ],
+    );
+  }
+}
+
+
+
+
+class ShipmentTrackingCard extends StatelessWidget {
+  const ShipmentTrackingCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        elevation: 2,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _Text(),
+              _buildShipmentDetails(),
+              const Divider(),
+              const SizedBox(height: 8),
+              _buildLocationDetails(),
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 8),
+              _buildStatus(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Row _Text() {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Current shipment",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                Text("See all")
+              ],
+            );
+  }
+
+  // Header Section
+
+
+  // Shipment Details
+  Widget _buildShipmentDetails() {
+    return ListTile(
+      leading: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.orange.shade100,
+          shape: BoxShape.circle,
+        ),
+        child: const Icon(Icons.local_shipping, color: Colors.orange),
+      ),
+      title: const Text(
+        "Macbook pro M2",
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+      ),
+      subtitle: const Text(
+        "#Tracking ID: H123135461235",
+        style: TextStyle(color: Colors.grey),
+      ),
+      trailing: const Icon(Icons.more_vert),
+    );
+  }
+
+  // Location Details
+  Widget _buildLocationDetails() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          children: [
+            const Icon(Icons.circle, size: 12, color: Colors.blue),
+            Container(
+              height: 30,
+              width: 2,
+              color: Colors.blue,
+            ),
+            const Icon(Icons.circle, size: 12, color: Colors.grey),
+          ],
+        ),
+        const SizedBox(width: 12),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text("From:", style: TextStyle(color: Colors.grey)),
+            const Text(
+              "3/04 Mirpur 11, Dhaka",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            const Text("Shipping To:", style: TextStyle(color: Colors.grey)),
+            const Text(
+              "3/04 Mirpur 11, Dhaka",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  // Status Section
+  Widget _buildStatus() {
+    return Row(
+      children: [
+        const Text(
+          "• Status: ",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        Text(
+          "Your package is in transit",
+          style: TextStyle(color: Colors.grey.shade700),
         ),
       ],
     );

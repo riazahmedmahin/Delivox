@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:user_app/presentation/screen/forgetpassword.dart';
+import 'package:user_app/presentation/screen/SignUp_screen.dart';
+import 'package:user_app/presentation/screen/Forgetpassword.dart';
 import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
 
@@ -21,28 +22,16 @@ class SignInScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: constraints.maxHeight * 0.1),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.network(
-                        "https://cdn-icons-png.flaticon.com/128/3665/3665927.png",
-                        height: 50,
-                      ),
-                      Text(
-                        "elivox",
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.w900),
-                      )
-                    ],
-                  ),
+           
                   SizedBox(height: constraints.maxHeight * 0.1),
                   Text(
-                    "Sign In",
+                    "Hello Again!",
                     style: Theme.of(context)
                         .textTheme
-                        .headlineSmall!
+                        .headlineLarge!
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
+                  Text("Wellcome back you've been missed",style: TextStyle(color: Colors.grey.shade500),),
                   SizedBox(height: constraints.maxHeight * 0.05),
                   Form(
                     key: _formKey,
@@ -70,7 +59,7 @@ class SignInScreen extends StatelessWidget {
                               color: Colors.grey,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16.0 * 1.5, vertical: 16.0),
+                                horizontal: 16.0 * 1.5, vertical: 14.0),
                           ),
                           keyboardType: TextInputType.phone,
                           onSaved: (phone) {
@@ -103,7 +92,7 @@ class SignInScreen extends StatelessWidget {
                               color: Colors.grey,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16.0 * 1.5, vertical: 16.0),
+                                horizontal: 16.0 * 1.5, vertical: 14.0),
                           ),
                           onSaved: (passaword) {
                             // Save it
@@ -142,14 +131,16 @@ class SignInScreen extends StatelessWidget {
                             txtcolor: Colors.white),
                         const SizedBox(height: 16.0),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(()=>SignUpScreen());
+                          },
                           child: Text.rich(
                             const TextSpan(
                               text: "Don’t have an account? ",
                               children: [
                                 TextSpan(
                                   text: "Sign Up",
-                                  style: TextStyle(color: Color(0xFF22A45D)),
+                                  style: TextStyle(color: Color.fromARGB(255, 21, 5, 79)),
                                 ),
                               ],
                             ),
@@ -189,16 +180,7 @@ class socialwithSignIn extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 100, // Set your desired width
-          child: Divider(
-            color: Colors.grey.shade300,
-            thickness: 1, // Adjust thickness if needed
-          ),
-        ),
-        SizedBox(
-          width: 6,
-        ),
+
         Container(
           height: 60,
           width: 60,
@@ -232,16 +214,26 @@ class socialwithSignIn extends StatelessWidget {
             ),
           )),
         ),
-        SizedBox(
-          width: 6,
+           SizedBox(
+          width: 12,
         ),
-        SizedBox(
-          width: 100, // Set your desired width
-          child: Divider(
-            color: Colors.grey.shade300,
-            thickness: 1, // Adjust thickness if needed
-          ),
+        Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(8)),
+          child: ClipRRect(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Image.network(
+                  "https://cdn-icons-png.flaticon.com/128/5968/5968764.png",
+                  fit: BoxFit.cover,
+                ),
+              )),
         ),
+
+
       ],
     );
   }

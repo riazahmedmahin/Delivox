@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // TODO: add flutter_svg package to pubspec.yaml
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:user_app/presentation/screen/signInScrenn.dart';
+import 'package:user_app/presentation/screen/SignIn_Screnn.dart';
 import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
 import 'package:user_app/presentation/widgets/mainbottom.dart';
