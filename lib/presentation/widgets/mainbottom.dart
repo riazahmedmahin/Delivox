@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:user_app/presentation/screen/Home_screens.dart';
 import 'package:user_app/presentation/screen/Profile_Screen.dart';
-import 'package:user_app/presentation/screen/check.dart';
+import 'package:user_app/presentation/screen/ShippingDetails_screen.dart';
+import 'package:user_app/presentation/screen/shipmentHistory_screen.dart';
 
 
 const Color inActiveIconColor = Color(0xFFB6B6B6);
@@ -25,7 +26,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final pages = [
     HomeScreen(),
-    CheckRateScreen(),
+    ShippingDetailsScreen(),
+    ShipMentHistoryScreen(),
+    ProfileScreen(),
   ];
 
   @override
@@ -33,7 +36,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     return Scaffold(
       body: pages[currentSelectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        //backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
 
         onTap: updateCurrentIndex,
         currentIndex: currentSelectedIndex,
@@ -75,40 +78,40 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             ),
             label: "Menu",
           ),
-          // BottomNavigationBarItem(
-          //   icon: SvgPicture.string(
-          //     chatIcon,
-          //     colorFilter: const ColorFilter.mode(
-          //       inActiveIconColor,
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          //   activeIcon: SvgPicture.string(
-          //     chatIcon,
-          //     colorFilter: const ColorFilter.mode(
-          //       Color(0xFFFF7643),
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          //   label: "Chat",
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: SvgPicture.string(
-          //     userIcon,
-          //     colorFilter: const ColorFilter.mode(
-          //       inActiveIconColor,
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          //   activeIcon: SvgPicture.string(
-          //     userIcon,
-          //     colorFilter: const ColorFilter.mode(
-          //       Color(0xFFFF7643),
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          //   label: "Profile",
-          // ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.string(
+              Shipment,
+              colorFilter: const ColorFilter.mode(
+                inActiveIconColor,
+                BlendMode.srcIn,
+              ),
+            ),
+            activeIcon: SvgPicture.string(
+              chatIcon,
+              colorFilter: const ColorFilter.mode(
+                Color(0xFFFF7643),
+                BlendMode.srcIn,
+              ),
+            ),
+            label: "Chat",
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.string(
+              userIcon,
+              colorFilter: const ColorFilter.mode(
+                inActiveIconColor,
+                BlendMode.srcIn,
+              ),
+            ),
+            activeIcon: SvgPicture.string(
+              userIcon,
+              colorFilter: const ColorFilter.mode(
+                Color(0xFFFF7643),
+                BlendMode.srcIn,
+              ),
+            ),
+            label: "Profile",
+          ),
         ],
       ),
     );
@@ -128,10 +131,11 @@ const MenuIcon = '''
 
 
 
-const heartIcon =
-'''<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.1585 10.6702L11.2942 18.6186C11.1323 18.7822 10.8687 18.7822 10.7058 18.6186L2.84145 10.6702C1.81197 9.62861 1.2443 8.24408 1.2443 6.77039C1.2443 5.29671 1.81197 3.91218 2.84145 2.87063C3.90622 1.79552 5.30308 1.25744 6.70098 1.25744C8.09887 1.25744 9.49573 1.79552 10.5605 2.87063C10.8033 3.11607 11.1967 3.11607 11.4405 2.87063C13.568 0.720415 17.03 0.720415 19.1585 2.87063C20.188 3.91113 20.7557 5.29566 20.7557 6.77039C20.7557 8.24408 20.188 9.62966 19.1585 10.6702ZM20.0386 1.98013C17.5687 -0.516223 13.6313 -0.652578 11.0005 1.57316C8.36973 -0.652578 4.43342 -0.516223 1.96245 1.98013C0.696354 3.25977 0 4.96001 0 6.77039C0 8.57972 0.696354 10.281 1.96245 11.5607L9.82678 19.5091C10.1495 19.8364 10.575 20 11.0005 20C11.426 20 11.8505 19.8364 12.1743 19.5091L20.0386 11.5607C21.3036 10.2821 22 8.58077 22 6.77039C22 4.96001 21.3036 3.25872 20.0386 1.98013Z" fill="#B6B6B6"/>
-</svg>''';
+const Shipment =
+'''<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5C7.95763 3.5 4.68066 6.77697 4.68066 10.8193C4.68066 14.8617 7.95763 18.1386 12 18.1386C16.0423 18.1386 19.3193 14.8617 19.3193 10.8193C19.3193 6.77697 16.0423 3.5 12 3.5ZM3.18066 10.8193C3.18066 5.94854 7.1292 2 12 2C16.8707 2 20.8193 5.94854 20.8193 10.8193C20.8193 13.5064 19.6175 15.9129 17.7221 17.5305L20.2713 20.7878C20.5266 21.114 20.4691 21.5854 20.1429 21.8406C19.8167 22.0959 19.3453 22.0384 19.0901 21.7122L16.5016 18.4048C15.1838 19.1885 13.6445 19.6386 12 19.6386C7.1292 19.6386 3.18066 15.6901 3.18066 10.8193ZM10.2499 8.96929C10.2499 8.55508 10.5857 8.21929 10.9999 8.21929H14.9999C15.4141 8.21929 15.7499 8.55508 15.7499 8.96929C15.7499 9.38351 15.4141 9.71929 14.9999 9.71929H10.9999C10.5857 9.71929 10.2499 9.38351 10.2499 8.96929ZM8.2499 12.6693C8.2499 12.2551 8.58569 11.9193 8.9999 11.9193H14.9999C15.4141 11.9193 15.7499 12.2551 15.7499 12.6693C15.7499 13.0835 15.4141 13.4193 14.9999 13.4193H8.9999C8.58569 13.4193 8.2499 13.0835 8.2499 12.6693Z" fill="black"/>
+</svg>
+''';
 
 const chatIcon =
 '''<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,6 +143,7 @@ const chatIcon =
 </svg>''';
 
 const userIcon =
-'''<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M20.3955 20.1586C20.1123 20.5122 19.6701 20.723 19.2127 20.723H2.78733C2.32989 20.723 1.8877 20.5122 1.60452 20.1586C1.33768 19.8263 1.24619 19.4248 1.3453 19.0275C2.44207 14.678 6.41199 11.6395 11.0005 11.6395C15.588 11.6395 19.5579 14.678 20.6547 19.0275C20.7538 19.4248 20.6623 19.8263 20.3955 20.1586ZM6.35536 5.8203C6.35536 3.31645 8.43888 1.27802 11.0005 1.27802C13.5611 1.27802 15.6446 3.31645 15.6446 5.8203C15.6446 8.32522 13.5611 10.3615 11.0005 10.3615C8.43888 10.3615 6.35536 8.32522 6.35536 5.8203ZM21.9235 18.7219C20.939 14.8154 17.9068 11.8451 14.1035 10.7843C15.8102 9.75979 16.9516 7.91838 16.9516 5.8203C16.9516 2.61141 14.2821 0 11.0005 0C7.71787 0 5.04839 2.61141 5.04839 5.8203C5.04839 7.91838 6.18981 9.75979 7.89649 10.7843C4.09321 11.8451 1.06104 14.8154 0.0764552 18.7219C-0.118501 19.4962 0.0633855 20.3077 0.576371 20.9456C1.11223 21.6166 1.91928 22 2.78733 22H19.2127C20.0807 22 20.8878 21.6166 21.4236 20.9456C21.9366 20.3077 22.1185 19.4962 21.9235 18.7219Z" fill="#B6B6B6"/>
-</svg>''';
+'''<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 13.9613 4.16429 15.7675 5.28015 17.2058C6.61629 14.8812 9.12448 13.3145 12 13.3145C14.8755 13.3145 17.3837 14.8812 18.7199 17.2058C19.8357 15.7675 20.5 13.9613 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5ZM17.6353 18.3635C16.6284 16.2632 14.4826 14.8145 12 14.8145C9.51745 14.8145 7.37162 16.2632 6.36468 18.3636C7.86469 19.6929 9.83809 20.5 12 20.5C14.1619 20.5 16.1353 19.6929 17.6353 18.3635ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM12.1509 6.15201C10.8336 6.15201 9.76562 7.21993 9.76562 8.53729C9.76562 9.85464 10.8336 10.9226 12.1509 10.9226C13.4683 10.9226 14.5362 9.85464 14.5362 8.53729C14.5362 7.21993 13.4683 6.15201 12.1509 6.15201ZM8.26562 8.53729C8.26562 6.39151 10.0051 4.65201 12.1509 4.65201C14.2967 4.65201 16.0362 6.39151 16.0362 8.53729C16.0362 10.6831 14.2967 12.4226 12.1509 12.4226C10.0051 12.4226 8.26562 10.6831 8.26562 8.53729Z" fill="black"/>
+</svg>
+''';

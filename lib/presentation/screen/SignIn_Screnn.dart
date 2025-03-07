@@ -31,7 +31,7 @@ class SignInScreen extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "Wellcome back you've been missed",
+                    "Wellcome back Login to continue",
                     style: TextStyle(color: Colors.grey.shade500),
                   ),
                   SizedBox(height: constraints.maxHeight * 0.05),

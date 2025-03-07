@@ -120,7 +120,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               padding: const EdgeInsets.only(bottom: 36.0, right: 16),
               child: FloatingActionButton(
                 onPressed: _nextPage,
-                backgroundColor: const Color(0xFF22A45D),
+                backgroundColor: Colors.indigo,
                 child: const Icon(Icons.arrow_forward, color: Colors.white),
                 shape: const CircleBorder(),
               ),
@@ -178,7 +178,7 @@ class DotIndicator extends StatelessWidget {
   const DotIndicator({
     super.key,
     this.isActive = false,
-    this.activeColor = const Color(0xFF22A45D),
+    this.activeColor = Colors.indigo,
     this.inActiveColor = const Color(0xFF868686),
   });
 

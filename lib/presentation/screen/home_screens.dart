@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
          appBar: PreferredSize(
         preferredSize: Size.fromHeight(175), // Total height of AppBar
         child: appbar(),
@@ -235,7 +236,8 @@ class SearchField extends StatelessWidget {
       borderSide: BorderSide.none,
     ),
     hintText: "Tracking ID",
-    prefixIcon: const Icon(Icons.search, color: Colors.grey),
+    
+    prefixIcon:  Icon(Icons.search, color: Colors.grey.shade400),
   ),
 ),
 
@@ -562,10 +564,11 @@ class ShipmentTrackingCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Card(
+        color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
-        elevation: 2,
+        elevation: 4,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

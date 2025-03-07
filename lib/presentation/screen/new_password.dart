@@ -25,7 +25,7 @@ class New_Password extends StatelessWidget {
               ),
               Text(
                 "Set New Password",
-                style: TextStyle(fontSize: 22),
+                style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 10,
@@ -38,22 +38,22 @@ class New_Password extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black)),
+                        borderSide: BorderSide(color: Colors.white)),
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderSide: BorderSide(color: Colors.white12),
+                        borderRadius: BorderRadius.all(Radius.circular(7))),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: BorderRadius.all(Radius.circular(7)),
                       borderSide: BorderSide(
-                        color: Colors.grey,
+                        color: Colors.white12,
                       ), // Border when focused
                     ),
                     prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.grey,
+                      Icons.password_outlined,
+                      color: Colors.grey.shade400,
                     ),
                     hintText: 'New Psssword',
-                    hintStyle: TextStyle(color: Colors.grey)),
+                    hintStyle: TextStyle(color: Colors.grey.shade400)),
               ),
               SizedBox(
                 height: 10,
@@ -61,22 +61,22 @@ class New_Password extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black)),
+                        borderSide: BorderSide(color: Colors.white)),
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderSide: BorderSide(color: Colors.white12),
+                        borderRadius: BorderRadius.all(Radius.circular(7))),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: BorderRadius.all(Radius.circular(7)),
                       borderSide: BorderSide(
-                        color: Colors.grey,
+                        color: Colors.white12,
                       ), // Border when focused
                     ),
                     prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.grey,
+                      Icons.password_outlined,
+                      color: Colors.grey.shade400,
                     ),
                     hintText: ' Confrim New Password',
-                    hintStyle: TextStyle(color: Colors.grey)),
+                    hintStyle: TextStyle(color: Colors.grey.shade400)),
               ),
               SizedBox(
                 height: 20,

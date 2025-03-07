@@ -5,6 +5,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       // appBar: AppBar(
       //   backgroundColor: Colors.white,
       //   title: Text('Profile'),
@@ -66,9 +67,10 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildMenuItem(BuildContext context, IconData icon, String title, VoidCallback onTap) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.symmetric(vertical: 8),
       child: ListTile(
-        leading: Icon(icon, color: Colors.green), // Icon added here
+        leading: Icon(icon, color: Colors.indigo), // Icon added here
         title: Text(
           title,
           style: TextStyle(fontSize: 16),

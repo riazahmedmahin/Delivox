@@ -23,29 +23,29 @@ class ForgetPassword extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text("Password recovery ", style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
+            Text("Password recovery ", style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
             Text("Enter your email address to recover your password"),
             SizedBox(
               height: 50,
             ),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black)),
+                    borderSide: BorderSide(color: Colors.white)),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                    borderSide: BorderSide(color: Colors.white12),
+                    borderRadius: BorderRadius.all(Radius.circular(7))),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius: BorderRadius.all(Radius.circular(7)),
                   borderSide: BorderSide(
-                    color: Colors.grey,
+                    color: Colors.white12,
                   ), // Border when focused
                 ),
                 hintText: 'Email address',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: TextStyle(color: Colors.grey.shade400),
                 prefixIcon: Icon(
                   Icons.email,
-                  color: Colors.grey,
+                  color: Colors.grey.shade400,
                 ),
                 contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16.0 * 1.5, vertical: 14.0),
