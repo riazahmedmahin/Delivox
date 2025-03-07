@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:user_app/presentation/screen/CartDetails_screen.dart';
 import 'package:user_app/presentation/widgets/filter.dart';
 
 class ShippingDetailsScreen extends StatefulWidget {
@@ -366,7 +368,9 @@ SizedBox(height: 20,),
                 SizedBox(
                   height: 45,
                   width: double.infinity,
-                  child: ElevatedButton(onPressed: (){},
+                  child: ElevatedButton(onPressed: (){
+                    Get.to(()=>AddCardScreen());
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.indigo
                   ),

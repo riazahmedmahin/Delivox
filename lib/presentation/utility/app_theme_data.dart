@@ -50,7 +50,8 @@ class AppThemeData {
     ),
     // Integrate app bar theme into input decoration theme
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: Colors.grey[200], // Match app bar background color
+      fillColor: Color(0x0F4A75E8) // 0F is the hex for 6% opacity
+, // Match app bar background color
       filled: true,
       labelStyle: TextStyle(color: Colors.grey.shade500), // Match app bar text color
       hintStyle: TextStyle(color: Colors.grey.shade500), // Match app bar text color

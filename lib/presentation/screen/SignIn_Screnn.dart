@@ -72,19 +72,23 @@ class SignInScreen extends StatelessWidget {
                           height: 15,
                         ),
                         TextFormField(
+                          
                           obscureText: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
+                                borderSide: BorderSide(color: Color(0x0F4A75E8) // 0F is the hex for 6% opacity
+)),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white12),
+                                borderSide: BorderSide(color: Color(0x0F4A75E8) // 0F is the hex for 6% opacity
+),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(7))),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(7)),
                               borderSide: BorderSide(
-                                color: Colors.white10,
+                                color: Color(0x0F4A75E8) // 0F is the hex for 6% opacity
+,
                               ), // Border when focused
                             ),
                             hintText: 'Password',
