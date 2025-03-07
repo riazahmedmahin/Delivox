@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:user_app/presentation/screen/SignUp_screen.dart';
 import 'package:user_app/presentation/screen/Forgetpassword.dart';
-import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
+import 'package:user_app/presentation/widgets/mainbottom.dart';
 
 class SignInScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -22,7 +21,7 @@ class SignInScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: constraints.maxHeight * 0.1),
-           
+
                   SizedBox(height: constraints.maxHeight * 0.1),
                   Text(
                     "Hello Again!",
@@ -31,32 +30,35 @@ class SignInScreen extends StatelessWidget {
                         .headlineLarge!
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
-                  Text("Wellcome back you've been missed",style: TextStyle(color: Colors.grey.shade500),),
+                  Text(
+                    "Wellcome back you've been missed",
+                    style: TextStyle(color: Colors.grey.shade500),
+                  ),
                   SizedBox(height: constraints.maxHeight * 0.05),
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
                         TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(color: Colors.white)),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white12),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(8))),
+                                    BorderRadius.all(Radius.circular(7))),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
+                                  BorderRadius.all(Radius.circular(7)),
                               borderSide: BorderSide(
-                                color: Colors.grey,
+                                color: Colors.white10,
                               ), // Border when focused
                             ),
                             hintText: 'Phone',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey.shade400),
                             prefixIcon: Icon(
                               Icons.call,
-                              color: Colors.grey,
+                              color: Colors.grey.shade400,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16.0 * 1.5, vertical: 14.0),
@@ -73,23 +75,23 @@ class SignInScreen extends StatelessWidget {
                           obscureText: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(color: Colors.white)),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white12),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(8))),
+                                    BorderRadius.all(Radius.circular(7))),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
+                                  BorderRadius.all(Radius.circular(7)),
                               borderSide: BorderSide(
-                                color: Colors.grey,
+                                color: Colors.white10,
                               ), // Border when focused
                             ),
                             hintText: 'Password',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey.shade400),
                             prefixIcon: Icon(
                               Icons.password_rounded,
-                              color: Colors.grey,
+                              color: Colors.grey.shade400,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16.0 * 1.5, vertical: 14.0),
@@ -115,7 +117,7 @@ class SignInScreen extends StatelessWidget {
                                           .textTheme
                                           .bodyLarge!
                                           .color!
-                                          .withOpacity(0.64),
+                                          .withOpacity(0.44),
                                     ),
                               ),
                             ),
@@ -125,41 +127,83 @@ class SignInScreen extends StatelessWidget {
                           height: 5,
                         ),
                         CustomButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(()=>BottomNavScreen());
+                            },
                             text: "Sign In",
                             color: const Color(0xFF4A3298),
                             txtcolor: Colors.white),
                         const SizedBox(height: 16.0),
-                        TextButton(
-                          onPressed: () {
-                            Get.to(()=>SignUpScreen());
-                          },
-                          child: Text.rich(
-                            const TextSpan(
-                              text: "Don’t have an account? ",
-                              children: [
-                                TextSpan(
-                                  text: "Sign Up",
-                                  style: TextStyle(color: Color.fromARGB(255, 21, 5, 79)),
-                                ),
-                              ],
+                        Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Divider(
+                                      thickness: 1,
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      "Or Sign in with",
+                                      style: TextStyle(
+                                        color: Colors.grey.shade600,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Divider(
+                                      thickness: 1,
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .color!
-                                      .withOpacity(0.64),
-                                ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                   socialwithSignIn(),
+
+                  SizedBox(
+                      height: constraints.maxHeight *
+                          0.1),
+                          
+                           // Add spacing at the bottom
+
+                  TextButton(
+                    onPressed: () {
+                      Get.to(() => SignUpScreen());
+                    },
+                    child: Text.rich(
+                      const TextSpan(
+                        text: "Don’t have an account? ",
+                        children: [
+                          TextSpan(
+                            text: "Register",
+                            style: TextStyle(
+                                color: Colors.indigo),
+                          ),
+                        ],
+                      ),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .color!
+                                .withOpacity(0.64),
+                          ),
+                    ),
+                  ),
                 ],
               ),
             );
@@ -180,7 +224,6 @@ class socialwithSignIn extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
         Container(
           height: 60,
           width: 60,
@@ -214,7 +257,7 @@ class socialwithSignIn extends StatelessWidget {
             ),
           )),
         ),
-           SizedBox(
+        SizedBox(
           width: 12,
         ),
         Container(
@@ -225,15 +268,13 @@ class socialwithSignIn extends StatelessWidget {
               borderRadius: BorderRadius.circular(8)),
           child: ClipRRect(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.network(
-                  "https://cdn-icons-png.flaticon.com/128/5968/5968764.png",
-                  fit: BoxFit.cover,
-                ),
-              )),
+            padding: const EdgeInsets.all(16.0),
+            child: Image.network(
+              "https://cdn-icons-png.flaticon.com/128/5968/5968764.png",
+              fit: BoxFit.cover,
+            ),
+          )),
         ),
-
-
       ],
     );
   }

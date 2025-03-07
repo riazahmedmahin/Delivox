@@ -5,6 +5,7 @@ import 'package:user_app/presentation/screen/Forgetpassword.dart';
 import 'package:user_app/presentation/screen/SignIn_Screnn.dart';
 import 'package:user_app/presentation/utility/app_color.dart';
 import 'package:user_app/presentation/widgets/custome_bottom.dart';
+import 'package:user_app/presentation/widgets/mainbottom.dart';
 
 class SignUpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -41,25 +42,25 @@ class SignUpScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(color: Colors.white)),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white12),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8))),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(8)),
                               borderSide: BorderSide(
-                                color: Colors.grey,
+                                color: Colors.white12,
                               ), // Border when focused
                             ),
                             hintText: 'Email',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey.shade400),
                             prefixIcon: Icon(
                               Icons.email,
-                              color: Colors.grey,
+                              color: Colors.grey.shade400,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16.0 * 1.5, vertical: 14.0),
@@ -71,25 +72,25 @@ class SignUpScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 15),
                         TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(color: Colors.white)),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white12),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8))),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(8)),
                               borderSide: BorderSide(
-                                color: Colors.grey,
+                                color: Colors.white12,
                               ), // Border when focused
                             ),
                             hintText: 'Phone',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey.shade400),
                             prefixIcon: Icon(
                               Icons.call,
-                              color: Colors.grey,
+                              color: Colors.grey.shade400,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16.0 * 1.5, vertical: 14.0),
@@ -106,25 +107,28 @@ class SignUpScreen extends StatelessWidget {
                           obscureText: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(color: Colors.white)),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide: BorderSide(color: Colors.white12),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(8))),
+                                    BorderRadius.all(Radius.circular(7))),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
+                                  BorderRadius.all(Radius.circular(7)),
                               borderSide: BorderSide(
-                                color: Colors.grey,
+                                color: Colors.white12,
                               ), // Border when focused
                             ),
                             hintText: 'Password',
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: TextStyle(color: Colors.grey.shade400),
                             prefixIcon: Icon(
                               Icons.password_rounded,
-                              color: Colors.grey,
+                              color: Colors.grey.shade400,
                             ),
-                            suffixIcon: Icon(Icons.remove_red_eye_sharp,color: Colors.grey,),
+                            suffixIcon: Icon(
+                              Icons.remove_red_eye_sharp,
+                              color: Colors.grey.shade400,
+                            ),
                             contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16.0 * 1.5, vertical: 14.0),
                           ),
@@ -132,47 +136,84 @@ class SignUpScreen extends StatelessWidget {
                             // Save it
                           },
                         ),
-
                         SizedBox(
                           height: 25,
                         ),
                         CustomButton(
-                            onPressed: () {},
-                            text: "Create",
+                            onPressed: () {
+                              Get.to(() => BottomNavScreen());
+                            },
+                            text: "Register",
                             color: const Color(0xFF4A3298),
                             txtcolor: Colors.white),
-                        const SizedBox(height: 16.0),
-                        TextButton(
-                          onPressed: () {
-                            Get.to(()=>SignInScreen());
-                          },
-                          child: Text.rich(
-                            const TextSpan(
-                              text: "Have an account? ",
-                              children: [
-                                TextSpan(
-                                  text: "Sign In",
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 21, 5, 79)),
-                                ),
-                              ],
+                        Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Divider(
+                                      thickness: 1,
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Text(
+                                      "Or Sign up with",
+                                      style: TextStyle(
+                                        color: Colors.grey.shade600,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Divider(
+                                      thickness: 1,
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .color!
-                                      .withOpacity(0.64),
-                                ),
-                          ),
+                            //socialwithSignIn(),
+                          ],
                         ),
+                        const SizedBox(height: 16.0),
                       ],
                     ),
                   ),
                   socialwithSignIn(),
+                  SizedBox(
+                      height: constraints.maxHeight *
+                          0.1), // Add spacing at the bottom
+
+                  TextButton(
+                    onPressed: () {
+                      Get.to(() => SignInScreen());
+                    },
+                    child: Text.rich(
+                      const TextSpan(
+                        text: "Have an account? ",
+                        children: [
+                          TextSpan(
+                            text: "Sign In",
+                            style: TextStyle(color: Colors.indigo),
+                          ),
+                        ],
+                      ),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .color!
+                                .withOpacity(0.64),
+                          ),
+                    ),
+                  ),
                 ],
               ),
             );

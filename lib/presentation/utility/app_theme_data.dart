@@ -52,8 +52,8 @@ class AppThemeData {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.grey[200], // Match app bar background color
       filled: true,
-      labelStyle: TextStyle(color: Colors.grey.shade800), // Match app bar text color
-      hintStyle: TextStyle(color: Colors.grey.shade800), // Match app bar text color
+      labelStyle: TextStyle(color: Colors.grey.shade500), // Match app bar text color
+      hintStyle: TextStyle(color: Colors.grey.shade500), // Match app bar text color
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8), // Match app bar border radius

@@ -33,6 +33,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     return Scaffold(
       body: pages[currentSelectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        //backgroundColor: Colors.white,
+
         onTap: updateCurrentIndex,
         currentIndex: currentSelectedIndex,
         showSelectedLabels: false,
@@ -50,7 +52,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             activeIcon: SvgPicture.string(
               homeIcon,
               colorFilter: const ColorFilter.mode(
-                Color(0xFFFF7643),
+                Color(0xFF0D1160),
                 BlendMode.srcIn,
               ),
             ),
@@ -67,7 +69,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             activeIcon: SvgPicture.string(
               MenuIcon,
               colorFilter: const ColorFilter.mode(
-                Color(0xFFFF7643),
+                Color(0xFF0D3071),
                 BlendMode.srcIn,
               ),
             ),

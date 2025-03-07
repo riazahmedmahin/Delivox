@@ -593,7 +593,7 @@ class ShipmentTrackingCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Current shipment",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-                Text("See all")
+                //Text("See all")
               ],
             );
   }
@@ -620,7 +620,7 @@ class ShipmentTrackingCard extends StatelessWidget {
         "#Tracking ID: H123135461235",
         style: TextStyle(color: Colors.grey),
       ),
-      trailing: const Icon(Icons.more_vert),
+     // trailing: const Icon(Icons.more_vert),
     );
   }
 
@@ -638,6 +638,12 @@ class ShipmentTrackingCard extends StatelessWidget {
               color: Colors.blue,
             ),
             const Icon(Icons.circle, size: 12, color: Colors.grey),
+            Container(
+              height: 30,
+              width: 2,
+              color: Colors.blue,
+            ),
+            const Icon(Icons.circle, size: 12, color: Colors.grey),
           ],
         ),
         const SizedBox(width: 12),
@@ -646,13 +652,13 @@ class ShipmentTrackingCard extends StatelessWidget {
           children: [
             const Text("From:", style: TextStyle(color: Colors.grey)),
             const Text(
-              "3/04 Mirpur 11, Dhaka",
+              "3/04 Mirpur 10, Dhaka",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             const Text("Shipping To:", style: TextStyle(color: Colors.grey)),
             const Text(
-              "3/04 Mirpur 11, Dhaka",
+              "3/04 Gulshan 11, Dhaka",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],

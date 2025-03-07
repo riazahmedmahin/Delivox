@@ -23,7 +23,7 @@ class ForgetPassword extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text("Password recovery ", style: TextStyle(fontSize: 22)),
+            Text("Password recovery ", style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
             Text("Enter your email address to recover your password"),
             SizedBox(
               height: 50,
