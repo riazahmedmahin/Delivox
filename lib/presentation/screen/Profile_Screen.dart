@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -6,58 +5,99 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   title: Text('Profile'),
-      // ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 60,),
-              Center(
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage('assets/profile_image.png'), // Add your image asset
+              // App Bar
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.arrow_back_ios_new, color: Colors.black),
+                    onPressed: () {},
+                  ),
+                  Spacer(),
+                  Text(
+                    "Profile",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Mahin',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'App developer',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ],
-                ),
+                  ),
+                  Spacer(),
+                ],
               ),
-              SizedBox(height: 24),
-              _buildMenuItem(context, Icons.edit, 'Edit Profile', () {
-                // Navigate to edit profile screen
-              }),
-              _buildMenuItem(context, Icons.history, 'Order History', () {
-                // Navigate to order history screen
-              }),
-              _buildMenuItem(context, Icons.notifications, 'Notifications', () {
-                // Navigate to notifications screen
-              }),
-              _buildMenuItem(context, Icons.local_shipping, 'Pick Up Information', () {
-                // Navigate to pick up information screen
-              }),
-              _buildMenuItem(context, Icons.account_balance, 'Bank Account Information', () {
-                // Navigate to bank account information screen
-              }),
-              _buildMenuItem(context, Icons.mobile_friendly, 'Mobile Financial Accounts', () {
-                // Navigate to mobile financial accounts screen
-              }),
-              _buildMenuItem(context, Icons.security, 'Privacy & Security', () {
-                // Navigate to privacy & security screen
-              }),
+
+              SizedBox(height: 20),
+
+              // Profile Section
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 35,
+                    backgroundImage: NetworkImage("https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fHww"), // Replace with actual image
+                  ),
+                  SizedBox(width: 15),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Alvi Ahmed",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        "alviahmed123@gmail.com",
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: Colors.blue[100],
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Text(
+                        "Edit",
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 30),
+
+              // Preference Section
+              Text(
+                "Preference",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+
+              _buildOptionTile(Icons.credit_card, "Payment Methods"),
+              _buildOptionTile(Icons.attach_money, "Notification"),
+              _buildOptionTile(Icons.language, "Pickup History"),
+              _buildOptionTile(Icons.history, "Shipment History"),
+
+
+              SizedBox(height: 30),
+
+              // Help Center Section
+              Text(
+                "Help Center",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+
+              _buildOptionTile(Icons.help_outline, "FAQ,s"),
+              _buildOptionTile(Icons.privacy_tip_outlined, "Privacy"),
             ],
           ),
         ),
@@ -65,18 +105,25 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem(BuildContext context, IconData icon, String title, VoidCallback onTap) {
-    return Card(
-      color: Colors.white,
-      margin: EdgeInsets.symmetric(vertical: 8),
-      child: ListTile(
-        leading: Icon(icon, color: Colors.indigo), // Icon added here
-        title: Text(
-          title,
-          style: TextStyle(fontSize: 16),
-        ),
-        trailing: Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: onTap,
+  Widget _buildOptionTile(IconData icon, String title) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 12),
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      decoration: BoxDecoration(
+        color: Color(0x0F4A75E8),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.black54),
+          SizedBox(width: 10),
+          Text(
+            title,
+            style: TextStyle(fontSize: 16),
+          ),
+          Spacer(),
+          Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black54),
+        ],
       ),
     );
   }

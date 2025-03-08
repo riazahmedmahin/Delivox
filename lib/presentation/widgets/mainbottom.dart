@@ -27,7 +27,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final pages = [
     HomeScreen(),
     ShippingDetailsScreen(),
-    ShipMentHistoryScreen(),
+    ShipmentHistoryScreen(),
     ProfileScreen(),
   ];
 
@@ -87,9 +87,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
               ),
             ),
             activeIcon: SvgPicture.string(
-              chatIcon,
+              Shipment,
               colorFilter: const ColorFilter.mode(
-                Color(0xFFFF7643),
+                Color(0xFF0D3071),
                 BlendMode.srcIn,
               ),
             ),
@@ -106,7 +106,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             activeIcon: SvgPicture.string(
               userIcon,
               colorFilter: const ColorFilter.mode(
-                Color(0xFFFF7643),
+                Color(0xFF0D3071),
                 BlendMode.srcIn,
               ),
             ),

@@ -22,7 +22,7 @@ class AddCardScreen extends StatelessWidget {
               height: 180,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Color(0xFF3B68FE),
+                color: Colors.indigo,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
@@ -62,7 +62,7 @@ class AddCardScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             CardDetailsField(icon: Icons.person, hint: "Card holder name"),
-            CardDetailsField(icon: Icons.credit_card, hint: "Card numver"),
+            CardDetailsField(icon: Icons.credit_card, hint: "Card number"),
             Row(
               children: [
                 Expanded(

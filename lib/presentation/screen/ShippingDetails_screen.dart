@@ -72,15 +72,16 @@ class _ShippingDetailsScreenState extends State<ShippingDetailsScreen> {
                 TextField(
                   controller: pickupController,
                   decoration: InputDecoration(
-                    
                     hintText: "Enter your Pick-up destination",
                     prefixIcon: Icon(Icons.location_on_outlined),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     filled: true,
-                    fillColor: Colors.white,
+                    fillColor: Color(0x0F4A75E8), // Light gray background
                   ),
                 ),
+
 
                 SizedBox(height: 10),
 
@@ -93,7 +94,7 @@ class _ShippingDetailsScreenState extends State<ShippingDetailsScreen> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     filled: true,
-                    fillColor: Colors.white,
+                    fillColor: Color(0x0F4A75E8),
                   ),
                 ),
 

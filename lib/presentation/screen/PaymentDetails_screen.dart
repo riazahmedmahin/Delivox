@@ -15,7 +15,7 @@ class BookingSummaryScreen extends StatelessWidget {
             //mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20,),
+              //SizedBox(height: 5,),
               _buildSectionTitle('Booking Details'),
               _buildDetailRow('Parcel Date', '04/03/25 | 11:20 AM', isBold: false),
               _buildDetailRow('Package Qunatity', '1', isBold: false),
@@ -46,7 +46,7 @@ class BookingSummaryScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF4A75E8), // Blue button
+                    backgroundColor: Colors.indigo, // Blue button
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
