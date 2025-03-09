@@ -33,7 +33,7 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
       ),
       body: Column(
         children: [
-          // Tabs for switching sections
+          // Tabs
           TabBar(
             controller: _tabController,
             labelColor: Colors.indigo,
@@ -51,7 +51,27 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
             child: TabBarView(
               controller: _tabController,
               children: [
-                _buildTabContent([]), // Upcoming Tab (Empty for now)
+                // Pending Tab
+                _buildTabContent([
+                  {
+                    "image": "https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
+                    "title": "Sunset Lodge",
+                    "Tracking Id": "#12345678",
+                    "Pickup": "Banani",
+                    "checkOut": "Dhanmondi",
+                    "price": "\$1,200",
+                  },
+                  {
+                    "image": "https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
+                    "title": "Golden Gate",
+                    "Tracking Id": "#87654321",
+                    "Pickup": "Mirpur",
+                    "checkOut": "Uttara",
+                    "price": "\$1,400",
+                  },
+                ]),
+
+                // Completed Tab
                 _buildTabContent([
                   {
                     "image": "https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
@@ -69,8 +89,27 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
                     "checkOut": "Dhaka",
                     "price": "\$1,700",
                   },
-                ]), // Completed Tab
-                _buildTabContent([]), // Cancelled Tab (Empty for now)
+                ]),
+
+                // Cancelled Tab
+                _buildTabContent([
+                  {
+                    "image": "https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
+                    "title": "Skyline Suites",
+                    "Tracking Id": "#98765432",
+                    "Pickup": "Bashundhara",
+                    "checkOut": "Mohakhali",
+                    "price": "\$1,500",
+                  },
+                  {
+                    "image": "https://cdn-icons-png.flaticon.com/128/2420/2420464.png",
+                    "title": "Ocean View",
+                    "Tracking Id": "#13572468",
+                    "Pickup": "Cox's Bazar",
+                    "checkOut": "Chittagong",
+                    "price": "\$1,800",
+                  },
+                ]),
               ],
             ),
           ),
@@ -87,7 +126,7 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
     }
 
     return ListView.builder(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: 1),
       itemCount: bookings.length,
       itemBuilder: (context, index) {
         return _buildBookingCard(
@@ -111,11 +150,11 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
     required String price,
   }) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(color: Colors.black12, blurRadius: 5, spreadRadius: 1),
         ],
@@ -168,8 +207,7 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildButton("Re-Book", Colors.blue[100]!, Colors.blue),
-              _buildButton("Add Review", Colors.blue, Colors.white),
+              _buildButton("27 Sep 2015", Colors.blue[100]!, Colors.blue),
             ],
           ),
         ],
@@ -181,14 +219,7 @@ class _ShipmentHistoryScreenState extends State<ShipmentHistoryScreen> with Sing
     return Expanded(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5),
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: bgColor,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          ),
-          child: Text(text, style: TextStyle(color: textColor)),
-        ),
+        child: Text(text, style: TextStyle(color: textColor)),
       ),
     );
   }

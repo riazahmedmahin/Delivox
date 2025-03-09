@@ -86,7 +86,7 @@ class New_Password extends StatelessWidget {
                     Get.to(SuccessfulScreen());
                   },
                   text: "Confirm",
-                  color: Color(0xFF22A45D),
+                  color: Color(0xFF4A3298),
                   txtcolor: Colors.white),
             ],
           ),

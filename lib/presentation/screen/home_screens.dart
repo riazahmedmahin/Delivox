@@ -351,18 +351,24 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryListController = Get.find<CategoryListController>();
-
+    List<Map<String, dynamic>> categories = [
+      {"icon": flashIcon, "text": "Electronic"},
+      {"icon": billIcon, "text": "Bill"},
+      {"icon": billIcon, "text": "Document"},
+      {"icon": giftIcon, "text": "Gift"},
+      {"icon": discoverIcon, "text": "More"},
+    ];
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(
-          5,
-          //categoryListController.categoryListModel.categoryDataList?.length?? 0,
+          categories.length,
           (index) => CategoryCard(
-            catagory: categoryListController.categoryListModel.categoryDataList![index],
+            icon: categories[index]["icon"],
+            text: categories[index]["text"],
+            press: () {},
           ),
         ),
       ),
@@ -372,19 +378,19 @@ class Categories extends StatelessWidget {
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
-    Key? key, required this.catagory,
-
-    //required this.press,
+    Key? key,
+    required this.icon,
+    required this.text,
+    required this.press,
   }) : super(key: key);
 
-  //final String icon, text;
-  //final GestureTapCallback press;
-  final categoryData catagory;
+  final String icon, text;
+  final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //onTap: press,
+      onTap: press,
       child: Column(
         children: [
           Container(
@@ -395,10 +401,10 @@ class CategoryCard extends StatelessWidget {
               color: const Color(0xFFFFECDF),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Image.network(catagory.categoryImg??"")
+            child: SvgPicture.string(icon),
           ),
           const SizedBox(height: 4),
-          Text(catagory.categoryName?? " ", textAlign: TextAlign.center)
+          Text(text, textAlign: TextAlign.center)
         ],
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:user_app/presentation/screen/Payment.dart';
 
 class BookingSummaryScreen extends StatelessWidget {
   @override
@@ -52,7 +54,9 @@ class BookingSummaryScreen extends StatelessWidget {
                     ),
                     padding: EdgeInsets.symmetric(vertical: 15),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    //Get.to(()=>PaymentMethodsScreen());
+                  },
                   child: Text(
                     'Pay \$259.15',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),

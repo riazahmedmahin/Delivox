@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:user_app/presentation/screen/Notification.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -82,7 +84,11 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 10),
 
               _buildOptionTile(Icons.credit_card, "Payment Methods"),
-              _buildOptionTile(Icons.attach_money, "Notification"),
+              GestureDetector(
+                onTap: (){
+                  Get.to(()=>SettingsScreen());
+                },
+                child: _buildOptionTile(Icons.notification_important_outlined, "Notification")),
               _buildOptionTile(Icons.language, "Pickup History"),
               _buildOptionTile(Icons.history, "Shipment History"),
 

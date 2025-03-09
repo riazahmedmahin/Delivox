@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:user_app/presentation/screen/CartDetails_screen.dart';
+import 'package:user_app/presentation/screen/Payment.dart';
 import 'package:user_app/presentation/widgets/filter.dart';
 
 class ShippingDetailsScreen extends StatefulWidget {
@@ -49,12 +50,6 @@ class _ShippingDetailsScreenState extends State<ShippingDetailsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20),
-
-                Text(
-                  "Calculate for Shipment",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
                 SizedBox(height: 5),
                 Text(
                   "Set preferences for your shipments.",
@@ -279,13 +274,13 @@ SizedBox(height: 20,),
                           });
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 12),
+                          padding: EdgeInsets.symmetric(vertical: 8),
                           margin: EdgeInsets.symmetric(horizontal: 5),
                           decoration: BoxDecoration(
                             color: selectedDelivery == option
                                 ? Colors.deepPurple
                                 : Colors.white,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: selectedDelivery == option
                                   ? Colors.deepPurple
@@ -370,7 +365,7 @@ SizedBox(height: 20,),
                   height: 45,
                   width: double.infinity,
                   child: ElevatedButton(onPressed: (){
-                    Get.to(()=>AddCardScreen());
+                    Get.to(()=>PaymentMethodsScreen());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.indigo

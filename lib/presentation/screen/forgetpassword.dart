@@ -63,7 +63,7 @@ class ForgetPassword extends StatelessWidget {
                   Get.to(OtpScreen());
                 },
                 text: "Next",
-                color: Color(0xFF22A45D),
+                color: Color(0xFF4A3298),
                 txtcolor: Colors.white),
           ],
         ),
