@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:user_app/presentation/screen/Home_screens.dart';
 import 'package:user_app/presentation/screen/Profile_Screen.dart';
 import 'package:user_app/presentation/screen/ShippingDetails_screen.dart';
+import 'package:user_app/presentation/screen/calculate.dart';
 import 'package:user_app/presentation/screen/shipmentHistory_screen.dart';
 
 
@@ -35,6 +37,13 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[currentSelectedIndex],
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Get.to(()=>CheckRatesScreen());
+      },
+      child: Icon(Icons.add),
+      ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
 

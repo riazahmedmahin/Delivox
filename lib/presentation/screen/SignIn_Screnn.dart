@@ -61,7 +61,7 @@ class SignInScreen extends StatelessWidget {
                               color: Colors.grey.shade400,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16.0 * 1.5, vertical: 14.0),
+                                horizontal: 16.0 * 1.5, vertical: 13.0),
                           ),
                           keyboardType: TextInputType.phone,
                           onSaved: (phone) {
@@ -98,7 +98,7 @@ class SignInScreen extends StatelessWidget {
                               color: Colors.grey.shade400,
                             ),
                             contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16.0 * 1.5, vertical: 14.0),
+                                horizontal: 16.0 * 1.5, vertical: 13.0),
                           ),
                           onSaved: (passaword) {
                             // Save it

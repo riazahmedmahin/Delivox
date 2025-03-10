@@ -77,7 +77,6 @@ class _ShippingDetailsScreenState extends State<ShippingDetailsScreen> {
                   ),
                 ),
 
-
                 SizedBox(height: 10),
 
                 // Drop-off Destination
@@ -162,7 +161,7 @@ class _ShippingDetailsScreenState extends State<ShippingDetailsScreen> {
                     SizedBox(
                       width: 15,
                     ),
-                    
+
                     // Package Counter Container
                     Expanded(
                       flex: 2, // Makes it take more space
@@ -256,13 +255,14 @@ class _ShippingDetailsScreenState extends State<ShippingDetailsScreen> {
                 SizedBox(
                   height: 15,
                 ),
-CategoriesFilter(),
-SizedBox(height: 20,),
+                CategoriesFilter(),
+                SizedBox(
+                  height: 20,
+                ),
                 // Delivery Options
                 Text("Shipment Details",
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: 10),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: ["Regular", "Standard", "Express"].map((option) {
@@ -357,20 +357,22 @@ SizedBox(height: 20,),
                     ],
                   ),
                 ),
-                
 
                 SizedBox(height: 50),
 
                 SizedBox(
                   height: 45,
                   width: double.infinity,
-                  child: ElevatedButton(onPressed: (){
-                    Get.to(()=>PaymentMethodsScreen());
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.indigo
-                  ),
-                   child: Text("Next",style: TextStyle(color: Colors.white),)),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Get.to(() => PaymentMethodsScreen());
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.indigo),
+                      child: Text(
+                        "Next",
+                        style: TextStyle(color: Colors.white),
+                      )),
                 ),
 
                 SizedBox(height: 30),
